@@ -22,6 +22,15 @@ $Roboto: 'Roboto', sans-serif;
     cursor: pointer;
 }
 
+@mixin lighten-button {
+    transition: 0.5s ease-in-out;
+    background-color:rgba(255, 255, 255, 0.25);
+    background-blend-mode: lighten;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.50); 
+}
+
+/*  */
+
 body {
     font-family: $Roboto;
     margin: 0;
@@ -79,7 +88,32 @@ body {
         &__header-title {
             font-family: $Shrikhand;
             font-size: 30px;
-        }    
+        }
+        &__header-hearth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+        }
+        .heart {
+            width: 30px;
+            stroke-width: 30;
+            stroke: black;
+            fill: white;
+            cursor: pointer;
+        }
+        .heart-fill {
+            position: absolute;
+            fill: url(#heart-gradient);
+            stroke-width: 20;
+        }
+        .heart-empty {
+            position: relative; 
+                &:hover {
+                  opacity: 0;
+                  transition: 0.5s ease-in-out;
+                }
+        }       
         &__blocks {
            display: grid;
            grid-gap: 30px;
@@ -148,6 +182,9 @@ body {
             color: $white-color;
             background-image: linear-gradient(to left top, $primaire-color, $secondaire-color);
             cursor: pointer;
+            &:hover {
+                @include lighten-button; 
+            }
         }  
 }
 
