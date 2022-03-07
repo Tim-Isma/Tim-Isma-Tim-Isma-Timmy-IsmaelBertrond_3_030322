@@ -1,5 +1,22 @@
 /* Variables */
 /* Mixins */
+/* Animation */
+@keyframes slide-left {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(-100px);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /*  */
 body {
   font-family: "Roboto", sans-serif;
@@ -112,12 +129,24 @@ body {
 .menu__block-dish {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   border-radius: 20px;
   padding: 12px 15px;
   overflow: hidden;
   background-color: white;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.144);
+  position: relative;
+}
+.menu__block-dish:hover .menu__check-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slide-left 0.5s ease-in-out both;
+  transform-origin: right;
+}
+.menu__block-dish:hover .menu__price-dish {
+  margin-right: 50px;
+  transition: 0.5s ease-in-out;
 }
 .menu__global-dish {
   white-space: nowrap;
@@ -137,9 +166,25 @@ body {
   font-weight: 300;
 }
 .menu__price-dish {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   font-weight: bold;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
+  height: 100%;
+}
+.menu__check-box {
+  display: none;
+  position: absolute;
+  padding: 0 15px;
+  height: 100%;
+  right: 0;
+  background-color: #99E2D0;
+}
+.menu__check-box i {
+  font-size: 30px;
+  color: white;
+  animation: rotate 0.5s ease-in-out;
 }
 .menu__container-button {
   display: flex;
@@ -158,7 +203,7 @@ body {
 }
 .menu__button:hover {
   transition: 0.5s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.2);
   background-blend-mode: lighten;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
 }
