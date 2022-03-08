@@ -29,7 +29,7 @@ $Roboto: 'Roboto', sans-serif;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.50); 
 }
 
-/* Animation */
+/* Keyframes */
 
 @keyframes slide-left {
     0% {
@@ -47,6 +47,68 @@ $Roboto: 'Roboto', sans-serif;
     100% {
       transform: rotate(360deg);
     }
+}
+
+@keyframes fade-move {
+    0% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Animation */
+
+.fade-move {
+    animation: fade-move 0.5s ease-in-out both;
+}
+
+.slide-top {
+    animation: slide-top 0.5s ease-in-out both;
+}
+
+#block-1 {
+    animation-delay: 0.1s;
+}
+
+#block-2 {
+    animation-delay: 0.2s;
+}
+
+#block-3 {
+    animation-delay: 0.3s;
+}
+
+#block-4 {
+    animation-delay: 0.4s;
+}
+
+#block-5 {
+    animation-delay: 0.5s;
+}
+
+#block-6 {
+    animation-delay: 0.6s;
+}
+
+#block-7 {
+    animation-delay: 0.7s;
+}
+
+#block-8 {
+    animation-delay: 0.8s;
+}
+
+#block-9 {
+    animation-delay: 0.9s;
+}
+
+#block-10 {
+    animation-delay: 1s;
 }
 
 /*  */
@@ -119,7 +181,7 @@ body {
             width: 30px;
             stroke-width: 30;
             stroke: black;
-            fill: white;
+            fill: $soft-gray-color;
             cursor: pointer;
         }
         .heart-fill {
@@ -166,6 +228,7 @@ body {
             background-color: $white-color;
             box-shadow: $box-shadow;
             position: relative;
+            cursor: pointer;
             &:hover .menu__check-box {
                 display: flex;
                 justify-content: center;
@@ -298,8 +361,6 @@ body {
             margin: 0 0 35px 0;
         }
     }
-
-  
 
     .footer {
         padding: 15px 0 25px 0;
