@@ -26,6 +26,209 @@ body {
   cursor: pointer;
 }
 
+.load-spinner {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  animation: load-spinner 3s ease-in-out;
+  visibility: hidden;
+}
+.load-spinner__circle-full-1 {
+  width: 160px;
+  height: 160px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.load-spinner__border-circle-1 {
+  width: 160px;
+  height: 160px;
+  box-sizing: border-box;
+  border-top: solid 10px #9356DC;
+  border-right: solid 10px transparent;
+  border-bottom: solid 10px transparent;
+  border-left: solid 10px transparent;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.5;
+  animation: spinner-1 3s linear;
+}
+.load-spinner__border-circle-1::before {
+  content: " ";
+  width: 160px;
+  height: 160px;
+  box-sizing: border-box;
+  border-top: solid 10px transparent;
+  border-right: solid 10px transparent;
+  border-bottom: solid 10px transparent;
+  border-left: solid 10px #9356DC;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  transform: rotateZ(-30deg);
+}
+.load-spinner__border-circle-1::after {
+  content: " ";
+  width: 160px;
+  height: 160px;
+  box-sizing: border-box;
+  border-top: solid 10px transparent;
+  border-right: solid 10px #9356DC;
+  border-bottom: solid 10px transparent;
+  border-left: solid 10px transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  transform: rotateZ(30deg);
+}
+.load-spinner__circle-full-2 {
+  width: 120px;
+  height: 120px;
+  box-sizing: border-box;
+  border-top: solid 12px #FF79DA;
+  border-right: solid 12px transparent;
+  border-bottom: solid 12px #FF79DA;
+  border-left: solid 12px transparent;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.5;
+  animation: spinner-2 3s linear;
+}
+.load-spinner__layer-center {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1;
+}
+.load-spinner__border-center {
+  width: 25px;
+  height: 25px;
+  border-top: solid 6px #9356DC;
+  border-left: solid 6px #FF79DA;
+  border-bottom: solid 6px #9356DC;
+  border-right: solid 6px #FF79DA;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.5;
+}
+.load-spinner__center {
+  width: 14px;
+  height: 14px;
+  background-color: #99E2D0;
+  border: 2px solid #278870;
+  box-sizing: border-box;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.5;
+  z-index: 1;
+  animation: center-scale 3s ease-in-out;
+}
+.load-spinner__wave {
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-top: 4px solid #99E2D0;
+  border-left: 4px solid transparent;
+  border-bottom: 4px solid #99E2D0;
+  border-right: 4px solid transparent;
+  border-radius: 50%;
+  animation: waves 2.5s linear;
+  animation-fill-mode: both;
+}
+
+@keyframes waves {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+}
+@keyframes spinner-1 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner-2 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes center-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes load-spinner {
+  0% {
+    visibility: visible;
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .main {
   display: flex;
   flex-direction: column;
