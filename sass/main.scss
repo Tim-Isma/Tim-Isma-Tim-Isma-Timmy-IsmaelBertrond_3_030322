@@ -58,6 +58,7 @@ body {
     height: 60px;
     background-color: $white-color;
     box-shadow: $box-shadow;
+    position: relative;
     &__title {
         font-family: $Shrikhand;
         margin: 0;   
@@ -271,12 +272,27 @@ body {
     align-items: center;
     &__icon {
         color: $dark-gray;
-        margin-right: 10px;
-        
+        margin-right: 5px;
     }
-    &__paris {
-        color: $dark-gray;
+}
+
+input {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: #eaeaea;
+    &:focus {
+        background-color: $soft-gray;
+        outline: none;
     }
+}
+
+::placeholder {
+    color: $dark-gray;
+    font-family: $Roboto;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .presentation {
