@@ -5,8 +5,9 @@ $secondaire-color: #FF79DA;
 $tertiaire-color: #99E2D0;
 
 $white-color: white;
-$dark-gray: #353535;
-$soft-gray: #f6f6f6;
+$light-color: #f6f6f6;
+$soft-color: #eaeaea;
+$dark-color: #353535;
 
 $background-gradient: linear-gradient(to left top, $primaire-color, $secondaire-color);
 $lighten: rgba(255, 255, 255, 0.5);
@@ -42,53 +43,65 @@ $Roboto: 'Roboto', sans-serif;
     color: $primaire-color;
 }
 
+@mixin position-ld-spinner {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin shape {
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
 /*  */
 
 body {
-    background-color: #eaeaea;
+    background-color: $soft-color;
+    font-family: $Roboto;
     margin: 0;
     padding: 0;
 }
 
 .load-spinner {
-    background-color: white;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 10;
+    background-color: $white-color;
+    @include position-ld-spinner;
+    z-index: 1;
     animation: load-spinner 3s ease-in-out;
     visibility: hidden;
     &__circle-full-1 {
         width: 160px;
         height: 160px;
-        box-sizing: border-box;
-        border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        margin: auto;
+        @include shape;
+        @include position-ld-spinner;
     }
     &__border-circle-1{
         width: 160px;
         height: 160px;
-        box-sizing: border-box;
+        @include shape;
         border-top:solid 10px $primaire-color;
         border-right:solid 10px transparent;
         border-bottom:solid 10px transparent;
         border-left:solid 10px transparent;
-        border-radius: 50%;
-        position:absolute;
         opacity: 0.5;
-        animation: spinner-1 3s linear;
+        position:absolute;
+        animation: rotate-spinner 3s linear;
     }
     &__border-circle-1::before {
         content:" ";
         width: 160px;
         height: 160px;
-        box-sizing: border-box;
+        @include shape;
         border-top:solid 10px transparent;
         border-right:solid 10px transparent;
         border-bottom:solid 10px transparent;
         border-left:solid 10px $primaire-color;
-        border-radius: 50%;
         position:absolute;
         top:-10px; left:-10px;
         transform:rotateZ(-30deg);
@@ -97,67 +110,55 @@ body {
         content:" ";
         width: 160px;
         height: 160px;
-        box-sizing: border-box;
+        @include shape;
         border-top:solid 10px transparent;
         border-right:solid 10px $primaire-color;
         border-bottom:solid 10px transparent;
         border-left:solid 10px transparent;
-        border-radius: 50%;
         position:absolute;
         top:-10px; right:-10px;
         transform:rotateZ(30deg);
     }
-    &__circle-full-2 {
+    &__border-circle-full-2 {
         width: 125px;
         height: 125px;
-        box-sizing: border-box;
+        @include shape;
         border-top:solid 10px $secondaire-color;
         border-right:solid 10px transparent;
         border-bottom:solid 10px $secondaire-color;
         border-left:solid 10px transparent;
-        border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        margin: auto;
         opacity: 0.5;
-        animation: spinner-2 3s linear;
+        @include position-ld-spinner;
+        animation: rotate-reverse-spinner 3s linear;
     }
     &__layer-center {
         width: 25px;
         height: 25px;
-        background-color:  $white-color;
-        box-sizing: border-box;
-        border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        margin: auto;
+        background-color: $white-color;
+        @include shape;
+        @include position-ld-spinner;
         z-index: 1;  
     }
     &__border-center {
         width: 25px;
         height: 25px;
+        @include shape;
         border-top:solid 6px $primaire-color;
         border-left:solid 6px $secondaire-color;
         border-bottom:solid 6px $primaire-color;
         border-right:solid 6px $secondaire-color;
-        box-sizing: border-box;
-        border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        margin: auto;
-        opacity: 0.5;   
+        opacity: 0.5; 
+        @include position-ld-spinner;
+        margin: auto;  
     }
     &__center {
         width: 14px;
         height: 14px;
+        @include shape;
         background-color: $tertiaire-color;
         border: 2px solid darken($tertiaire-color, 40%);
-        box-sizing: border-box;
-        border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        margin: auto;
         opacity: 0.5;
+        @include position-ld-spinner;
         z-index: 1;
         animation: center-scale 1s ease-in-out infinite;
     }
@@ -165,13 +166,11 @@ body {
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        margin: auto;
         border-top: 4px solid $tertiaire-color;
         border-left: 4px solid transparent;
         border-bottom: 4px solid $tertiaire-color;
         border-right: 4px solid transparent;
+        @include position-ld-spinner;
         animation: waves 1s linear infinite;
     }
     &__three-dots-left {
@@ -186,33 +185,31 @@ body {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        animation: three-dots 1s infinite ease-in-out;
+        animation: three-dots 1s ease-in-out infinite;
     }
     &__three-dots-left span:nth-child(1) {
         right: 0; top: 6px;
-        animation-delay: 0.2s;
         opacity: 0.6;
+        animation-delay: 0.2s;
     }
     &__three-dots-left span:nth-child(2) {
         width: 4px;
         height: 4px;
         right: 10px; top: 7px;
-        animation-delay: 0.4s;
         opacity: 0.4;
+        animation-delay: 0.4s;
     }
     &__three-dots-left span:nth-child(3) {
         width: 3px;
         height: 3px;
-        right: 18px; top: 7.5px; 
+        right: 18px; top: 7.5px;
+        opacity: 0.2; 
         animation-delay: 0.6s;
-        opacity: 0.2;
     }
     &__three-dots-right {
         width: 30px;
         height: 20px;
-        position: fixed;
-        top: 0; left: 0; right: 0px; bottom: 0;
-        margin: auto;
+        @include position-ld-spinner;
         transform-origin: 100% 50%;
         transform: rotate(180deg);
     }
@@ -221,26 +218,26 @@ body {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        animation: three-dots 1s infinite ease-in-out;
+        animation: three-dots 1s ease-in-out infinite;
     }
     &__three-dots-right span:nth-child(1) {
         right: 0; top: 6px;
-        animation-delay: 0.2s;
         opacity: 0.6;
+        animation-delay: 0.2s;
     }
     &__three-dots-right span:nth-child(2) {
         width: 4px;
         height: 4px;
         right: 10px; top: 7px;
-        animation-delay: 0.4s;
         opacity: 0.4;
+        animation-delay: 0.4s;
     }
     &__three-dots-right span:nth-child(3) {
         width: 3px;
         height: 3px;
-        right: 18px; top: 7.5px; 
+        right: 18px; top: 7.5px;
+        opacity: 0.2; 
         animation-delay: 0.6s;
-        opacity: 0.2;
     }
 }   
 
@@ -270,6 +267,7 @@ body {
 }
 
 @keyframes waves {
+
     0% {
       width: 0;
       height: 0;
@@ -282,7 +280,7 @@ body {
     }
 }
 
-@keyframes spinner-1 {
+@keyframes rotate-spinner {
     
      0% {
         transform:rotate(0);
@@ -293,7 +291,7 @@ body {
     }
 }
 
-@keyframes spinner-2 {
+@keyframes rotate-reverse-spinner {
     
     0% {
        transform:rotate(0);
@@ -335,9 +333,7 @@ body {
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     width: 100%;
     height: 60px;
     background-color: $white-color;
@@ -358,11 +354,9 @@ body {
 }
 
 .location {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     &__icon {
-        color: $dark-gray;
+        color: $dark-color;
         margin-right: 5px;
     }
 }
@@ -372,15 +366,15 @@ input {
     border-radius: 20px;
     padding: 10px 15px;
     margin: 10px 0;
-    background-color: #eaeaea;
+    background-color: $soft-color;
     &:focus {
-        background-color: $soft-gray;
+        background-color: $light-color;
         outline: none;
     }
 }
 
 ::placeholder {
-    color: $dark-gray;
+    color: $dark-color;
     font-family: $Roboto;
     font-weight: 500;
     font-size: 15px;
@@ -389,7 +383,7 @@ input {
 .presentation {
     width: 100%;
     height: auto;
-    background-color: $soft-gray;
+    background-color: $light-color;
     &__container {
         display: flex;
         flex-direction: column;
@@ -401,7 +395,6 @@ input {
             text-align: center;
             max-width: 250px;
             font-weight: 500;
-            font-family: $Roboto;
             margin: 0;
         }
 
@@ -409,14 +402,12 @@ input {
             text-align: center;
             max-width: 80%;
             font-weight: 300;
-            font-family: $Roboto;
-            color: $dark-gray;
+            color: $dark-color;
         }
 
         &__button {
             border-radius: 200px;
             font-weight: 400;
-            font-family: $Roboto;
             color: $white-color;
             padding: 0 20px;
             margin-top: 10px;
@@ -430,9 +421,7 @@ input {
 }
 
 .functioning {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     width: 100%;
     height: auto;
     background-color: $white-color;
@@ -442,7 +431,6 @@ input {
         height: auto;
     }
     &__title {
-        font-family: $Roboto;
         font-weight: 500;
         font-size: 22px;
         margin: 0;
@@ -458,7 +446,7 @@ input {
         align-items: center;
         width: 97%;
         height: 55px;
-        background-color: $soft-gray;
+        background-color: $light-color;
         border-radius: 20px;
         box-shadow: $box-shadow;
         margin: 10px 10px;
@@ -472,7 +460,6 @@ input {
         }
     }
     &__number {
-        font-family: $Roboto;
         font-size: 12px;
         padding: 4.5px 8px;
         border-radius: 20px;
@@ -486,7 +473,6 @@ input {
         margin: 0 20px 0 30px;
     }
     &__text {
-        font-family: $Roboto;
         font-weight: 500;
         font-size: 15px;
     }
@@ -495,14 +481,13 @@ input {
 .restaurants {
     max-width: 100%;
     height: auto;
-    background-color: $soft-gray;
+    background-color: $light-color;
     &__container {
         width: 90%;
         margin: auto;
         padding: 45px 0;
     }
     &__title {
-        font-family: $Roboto;
         font-size: 22px;
         font-weight: 500;
         margin: 0 0 20px 0;
@@ -539,7 +524,6 @@ input {
         }
     }
     &__card-new {
-        font-family: $Roboto;
         padding: 10px 20px;
         font-weight: 500;
         color: #0e9070;
@@ -561,20 +545,16 @@ input {
         margin-left: 15px;
     }
     &__description-name {
-        font-family: $Roboto;
         font-weight: 500;
         font-size: 17px;
         margin: 0;  
     }
     &__description-city {
-        font-family: $Roboto;
         font-weight: 300;
         margin: 3px 0 0 0;
     }
     &__hearth {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center;
         margin-right: 40px;
         width: 35px;
     }
@@ -582,7 +562,7 @@ input {
         width: 30px;
         stroke-width: 30;
         stroke: black;
-        fill: white;
+        fill: $white-color;
         cursor: pointer;
     }
     .heart-fill {
@@ -605,7 +585,7 @@ input {
     width: 100%;
     height: auto;
     padding: 15px 0;
-    background-color: $dark-gray;
+    background-color: $dark-color;
     &__block {
         width: 90%;
         height: auto;
@@ -631,15 +611,14 @@ input {
         cursor: pointer;
     }
     &__link-text {
-        font-family: $Roboto;
         font-weight: 400;
         font-size: 15px;
         margin: 5px 0;
     }
     & a {
-        @include changelink(white);
+        @include changelink($white-color);
         & :hover {
-            @include changelink(white, underline);
+            @include changelink($white-color, underline);
         }
     }
 }

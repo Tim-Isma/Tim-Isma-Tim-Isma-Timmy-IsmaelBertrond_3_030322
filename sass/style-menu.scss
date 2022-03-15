@@ -5,9 +5,9 @@ $secondaire-color: #FF79DA;
 $tertiaire-color: #99E2D0;
 
 $white-color: white;
-$dark-gray-color: #353535;
-$soft-gray-color: #f6f6f6;
-$gray-color: #828282;
+$light-color: #f6f6f6;
+$soft-color: #eaeaea;
+$dark-color: #353535;
 
 $box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.144);
 
@@ -29,9 +29,16 @@ $Roboto: 'Roboto', sans-serif;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.50); 
 }
 
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Keyframes */
 
 @keyframes slide-left {
+    
     0% {
       transform: scaleX(0);
     }
@@ -41,6 +48,7 @@ $Roboto: 'Roboto', sans-serif;
   }
 
 @keyframes rotate {
+
     0% {
       transform: rotate(0);
     }
@@ -50,6 +58,7 @@ $Roboto: 'Roboto', sans-serif;
 }
 
 @keyframes fade-move {
+
     0% {
         transform: translateY(15px);
         opacity: 0;
@@ -120,9 +129,7 @@ body {
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     width: 100%;
     height: 60px;
     background-color: $white-color;
@@ -159,7 +166,7 @@ body {
         margin-top: -60px;
         padding: 0 20px;
         border-radius: 30px 30px 0 0;
-        background-color: $soft-gray-color;
+        background-color: $light-color;
         }
         &__header {
             display: flex;
@@ -172,16 +179,14 @@ body {
             font-size: 30px;
         }
         &__header-hearth {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex-center;
             width: 35px;
         }
         .heart {
             width: 30px;
             stroke-width: 30;
             stroke: black;
-            fill: $soft-gray-color;
+            fill: $light-color;
             cursor: pointer;
         }
         .heart-fill {
@@ -230,9 +235,7 @@ body {
             position: relative;
             cursor: pointer;
             &:hover .menu__check-box {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include flex-center;
                 animation: slide-left 0.5s ease-in-out both;
                 transform-origin: right;
             }
@@ -280,9 +283,7 @@ body {
             }
         }
         &__container-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex-center;
             width: 100%;
             height: 100px;
             margin: 25px 0 35px 0;
@@ -305,7 +306,7 @@ body {
     width: 100%;
     height: auto;
     padding: 15px 0;
-    background-color: $dark-gray-color;
+    background-color: $dark-color;
     &__block {
         width: 90%;
         height: auto;
@@ -337,9 +338,9 @@ body {
         margin: 5px 0;
     }
     & a {
-        @include changelink(white);
+        @include changelink($white-color);
         & :hover {
-            @include changelink(white, underline);
+            @include changelink($white-color, underline);
         }
     }
 }

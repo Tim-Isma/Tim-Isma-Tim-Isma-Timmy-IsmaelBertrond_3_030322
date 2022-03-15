@@ -3,6 +3,7 @@
 /*  */
 body {
   background-color: #eaeaea;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -14,7 +15,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
+  margin: auto;
+  z-index: 1;
   animation: load-spinner 3s ease-in-out;
   visibility: hidden;
 }
@@ -34,25 +36,25 @@ body {
   width: 160px;
   height: 160px;
   box-sizing: border-box;
+  border-radius: 50%;
   border-top: solid 10px #9356DC;
   border-right: solid 10px transparent;
   border-bottom: solid 10px transparent;
   border-left: solid 10px transparent;
-  border-radius: 50%;
-  position: absolute;
   opacity: 0.5;
-  animation: spinner-1 3s linear;
+  position: absolute;
+  animation: rotate-spinner 3s linear;
 }
 .load-spinner__border-circle-1::before {
   content: " ";
   width: 160px;
   height: 160px;
   box-sizing: border-box;
+  border-radius: 50%;
   border-top: solid 10px transparent;
   border-right: solid 10px transparent;
   border-bottom: solid 10px transparent;
   border-left: solid 10px #9356DC;
-  border-radius: 50%;
   position: absolute;
   top: -10px;
   left: -10px;
@@ -63,33 +65,33 @@ body {
   width: 160px;
   height: 160px;
   box-sizing: border-box;
+  border-radius: 50%;
   border-top: solid 10px transparent;
   border-right: solid 10px #9356DC;
   border-bottom: solid 10px transparent;
   border-left: solid 10px transparent;
-  border-radius: 50%;
   position: absolute;
   top: -10px;
   right: -10px;
   transform: rotateZ(30deg);
 }
-.load-spinner__circle-full-2 {
+.load-spinner__border-circle-full-2 {
   width: 125px;
   height: 125px;
   box-sizing: border-box;
+  border-radius: 50%;
   border-top: solid 10px #FF79DA;
   border-right: solid 10px transparent;
   border-bottom: solid 10px #FF79DA;
   border-left: solid 10px transparent;
-  border-radius: 50%;
+  opacity: 0.5;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  opacity: 0.5;
-  animation: spinner-2 3s linear;
+  animation: rotate-reverse-spinner 3s linear;
 }
 .load-spinner__layer-center {
   width: 25px;
@@ -108,34 +110,35 @@ body {
 .load-spinner__border-center {
   width: 25px;
   height: 25px;
+  box-sizing: border-box;
+  border-radius: 50%;
   border-top: solid 6px #9356DC;
   border-left: solid 6px #FF79DA;
   border-bottom: solid 6px #9356DC;
   border-right: solid 6px #FF79DA;
-  box-sizing: border-box;
-  border-radius: 50%;
+  opacity: 0.5;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  opacity: 0.5;
+  margin: auto;
 }
 .load-spinner__center {
   width: 14px;
   height: 14px;
-  background-color: #99E2D0;
-  border: 2px solid #278870;
   box-sizing: border-box;
   border-radius: 50%;
+  background-color: #99E2D0;
+  border: 2px solid #278870;
+  opacity: 0.5;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  opacity: 0.5;
   z-index: 1;
   animation: center-scale 1s ease-in-out infinite;
 }
@@ -143,16 +146,16 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 50%;
+  border-top: 4px solid #99E2D0;
+  border-left: 4px solid transparent;
+  border-bottom: 4px solid #99E2D0;
+  border-right: 4px solid transparent;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  border-top: 4px solid #99E2D0;
-  border-left: 4px solid transparent;
-  border-bottom: 4px solid #99E2D0;
-  border-right: 4px solid transparent;
   animation: waves 1s linear infinite;
 }
 .load-spinner__three-dots-left {
@@ -170,29 +173,29 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  animation: three-dots 1s infinite ease-in-out;
+  animation: three-dots 1s ease-in-out infinite;
 }
 .load-spinner__three-dots-left span:nth-child(1) {
   right: 0;
   top: 6px;
-  animation-delay: 0.2s;
   opacity: 0.6;
+  animation-delay: 0.2s;
 }
 .load-spinner__three-dots-left span:nth-child(2) {
   width: 4px;
   height: 4px;
   right: 10px;
   top: 7px;
-  animation-delay: 0.4s;
   opacity: 0.4;
+  animation-delay: 0.4s;
 }
 .load-spinner__three-dots-left span:nth-child(3) {
   width: 3px;
   height: 3px;
   right: 18px;
   top: 7.5px;
-  animation-delay: 0.6s;
   opacity: 0.2;
+  animation-delay: 0.6s;
 }
 .load-spinner__three-dots-right {
   width: 30px;
@@ -200,7 +203,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0px;
+  right: 0;
   bottom: 0;
   margin: auto;
   transform-origin: 100% 50%;
@@ -211,29 +214,29 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  animation: three-dots 1s infinite ease-in-out;
+  animation: three-dots 1s ease-in-out infinite;
 }
 .load-spinner__three-dots-right span:nth-child(1) {
   right: 0;
   top: 6px;
-  animation-delay: 0.2s;
   opacity: 0.6;
+  animation-delay: 0.2s;
 }
 .load-spinner__three-dots-right span:nth-child(2) {
   width: 4px;
   height: 4px;
   right: 10px;
   top: 7px;
-  animation-delay: 0.4s;
   opacity: 0.4;
+  animation-delay: 0.4s;
 }
 .load-spinner__three-dots-right span:nth-child(3) {
   width: 3px;
   height: 3px;
   right: 18px;
   top: 7.5px;
-  animation-delay: 0.6s;
   opacity: 0.2;
+  animation-delay: 0.6s;
 }
 
 @keyframes three-dots {
@@ -271,7 +274,7 @@ body {
     opacity: 0;
   }
 }
-@keyframes spinner-1 {
+@keyframes rotate-spinner {
   0% {
     transform: rotate(0);
   }
@@ -279,7 +282,7 @@ body {
     transform: rotate(360deg);
   }
 }
-@keyframes spinner-2 {
+@keyframes rotate-reverse-spinner {
   0% {
     transform: rotate(0);
   }
@@ -381,20 +384,17 @@ input:focus {
   text-align: center;
   max-width: 250px;
   font-weight: 500;
-  font-family: "Roboto", sans-serif;
   margin: 0;
 }
 .presentation__text {
   text-align: center;
   max-width: 80%;
   font-weight: 300;
-  font-family: "Roboto", sans-serif;
   color: #353535;
 }
 .presentation__button {
   border-radius: 200px;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
   color: white;
   padding: 0 20px;
   margin-top: 10px;
@@ -423,7 +423,6 @@ input:focus {
   height: auto;
 }
 .functioning__title {
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 22px;
   margin: 0;
@@ -456,7 +455,6 @@ input:focus {
   color: #9356DC;
 }
 .functioning__number {
-  font-family: "Roboto", sans-serif;
   font-size: 12px;
   padding: 4.5px 8px;
   border-radius: 20px;
@@ -470,7 +468,6 @@ input:focus {
   margin: 0 20px 0 30px;
 }
 .functioning__text {
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 15px;
 }
@@ -486,7 +483,6 @@ input:focus {
   padding: 45px 0;
 }
 .restaurants__title {
-  font-family: "Roboto", sans-serif;
   font-size: 22px;
   font-weight: 500;
   margin: 0 0 20px 0;
@@ -525,7 +521,6 @@ input:focus {
   border-radius: 20px 20px 0 0;
 }
 .restaurants__card-new {
-  font-family: "Roboto", sans-serif;
   padding: 10px 20px;
   font-weight: 500;
   color: #0e9070;
@@ -547,13 +542,11 @@ input:focus {
   margin-left: 15px;
 }
 .restaurants__description-name {
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 17px;
   margin: 0;
 }
 .restaurants__description-city {
-  font-family: "Roboto", sans-serif;
   font-weight: 300;
   margin: 3px 0 0 0;
 }
@@ -617,7 +610,6 @@ input:focus {
   cursor: pointer;
 }
 .footer__link-text {
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 15px;
   margin: 5px 0;
