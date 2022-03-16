@@ -1,0 +1,43 @@
+.footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+    background-color: $dark-color;
+    &__block {
+        width: 90%;
+        height: auto;
+        margin: auto;
+        color: $white-color;
+    }
+    &__logo {
+        font-family: $Shrikhand;
+        font-size: 20px;
+        margin: 0 0 10px 0;
+    }
+    &__links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__link {
+        display: flex;
+        align-items: center;
+    }
+    & i {
+        margin-right: 7px;
+        cursor: pointer;
+    }
+    &__link-text {
+        font-weight: 400;
+        font-size: 15px;
+        margin: 5px 0;
+    }
+    & a {
+        @include changelink($white-color);
+        & :hover {
+            @include changelink($white-color, underline);
+        }
+    }
+}

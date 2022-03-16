@@ -1,0 +1,26 @@
+.location {
+    @include flex-center;
+    &__icon {
+        color: $dark-color;
+        margin-right: 5px;
+    }
+}
+
+input {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: $soft-color;
+    &:focus {
+        background-color: $light-color;
+        outline: none;
+    }
+}
+
+::placeholder {
+    color: $dark-color;
+    font-family: $Roboto;
+    font-weight: 500;
+    font-size: 15px;
+}

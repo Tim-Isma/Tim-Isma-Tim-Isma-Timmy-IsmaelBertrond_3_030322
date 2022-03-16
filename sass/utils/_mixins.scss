@@ -1,0 +1,40 @@
+@mixin changelink($colorlink: black, $decorationlink: none) {
+    text-decoration: $decorationlink;
+    color: $colorlink;
+    cursor: pointer;
+}
+
+@mixin lighten-button {
+    transition: 0.5s ease-in-out;
+    background-color:rgba(255, 255, 255, 0.2);
+    background-blend-mode: lighten;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.50); 
+}
+
+@mixin lighten-background-purple {
+    transition: 0.5s ease-in-out;
+    background-color: rgba(146, 86, 220, 0.15);
+    background-blend-mode: lighten;
+}
+
+@mixin lighten-icon-purple {
+    transition: 0.5s ease-in-out;
+    color: $primaire-color;
+}
+
+@mixin position-ld-spinner {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin shape {
+    box-sizing: border-box;
+    border-radius: 50%;
+}

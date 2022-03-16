@@ -1,0 +1,54 @@
+.restaurants {
+    &__card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        box-shadow: $box-shadow;
+        transform: scale(1);
+        position: relative;
+        &:hover {
+            transition: .5s ease-in-out;
+            transform: scale(1.02);
+        }
+    }
+    &__card-image {
+        width: 100%;
+        height: 190px;
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+    }
+    &__card-new {
+        padding: 10px 20px;
+        font-weight: 500;
+        color: #0e9070;
+        background-color: $tertiaire-color;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    &__block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 70px;
+        background-color: $white-color;
+        border-radius: 0 0 20px 20px;
+    }
+    &__description-menu {
+        margin-left: 15px;
+    }
+    &__description-name {
+        font-weight: 500;
+        font-size: 17px;
+        margin: 0;  
+    }
+    &__description-city {
+        font-weight: 300;
+        margin: 3px 0 0 0;
+    }
+}
