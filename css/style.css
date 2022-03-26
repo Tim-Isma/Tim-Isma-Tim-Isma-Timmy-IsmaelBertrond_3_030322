@@ -588,8 +588,7 @@ input:focus {
   margin: 3px 0 0 0;
 }
 
-/* hearth */
-/* Home page */
+/* hearth - Home Page */
 .restaurants__hearth {
   display: flex;
   justify-content: center;
@@ -600,54 +599,22 @@ input:focus {
 
 .heart {
   width: 30px;
-  stroke-width: 30;
+  stroke-width: 25;
   stroke: black;
-  fill: white;
+  fill: transparent;
   cursor: pointer;
 }
 
 .heart-fill {
   position: absolute;
-  fill: url(#heart-gradient);
-  stroke-width: 20;
-}
-
-.heart-empty {
-  position: relative;
-}
-.heart-empty:hover {
+  fill: url(#heart-gradient-1);
+  fill: url(#heart-gradient-2);
+  fill: url(#heart-gradient-3);
+  fill: url(#heart-gradient-4);
   opacity: 0;
-  transition: 0.5s ease-in-out;
 }
-
-/* Page menu */
-.menu__hearth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 40px;
-  width: 35px;
-}
-
-.heart {
-  width: 30px;
-  stroke-width: 30;
-  stroke: black;
-  fill: #f6f6f6;
-  cursor: pointer;
-}
-
-.heart-fill {
-  position: absolute;
-  fill: url(#heart-gradient);
-  stroke-width: 20;
-}
-
-.heart-empty {
-  position: relative;
-}
-.heart-empty:hover {
-  opacity: 0;
+.heart-fill:hover {
+  opacity: 1;
   transition: 0.5s ease-in-out;
 }
 

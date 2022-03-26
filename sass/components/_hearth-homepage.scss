@@ -1,0 +1,28 @@
+.restaurants__hearth {
+    @include flex-center;
+    margin-right: 40px;
+    width: 35px;
+}
+.heart {
+    width: 30px;
+    stroke-width: 25;
+    stroke: black;
+    fill: transparent;
+    cursor: pointer;
+}
+.heart-fill {
+    position: absolute;
+    fill: url(#heart-gradient-1);
+    fill: url(#heart-gradient-2);
+    fill: url(#heart-gradient-3);
+    fill: url(#heart-gradient-4);
+    opacity: 0;
+    &:hover {
+        opacity: 1;
+        transition: 0.5s ease-in-out;
+    }
+}
+
+
+
+
